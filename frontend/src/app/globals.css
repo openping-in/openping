@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0c0c0c;
+  --foreground: #f0f0f0;
+  --muted: #7a7a7a;
+  --surface: #000000;
+  --border: #f0f0f0;
+  --border-dim: #2a2a2a;
+  --accent: #0866ff;
+  --accent-dark: #004ecb;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-mono), "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+::selection {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.retro-grid {
+  background-color: var(--background);
+  background-image:
+    linear-gradient(var(--border-dim) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-dim) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.retro-nav {
+  background-color: var(--surface);
+  border-bottom: 2px solid var(--border);
+}
+
+.retro-box {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  box-shadow: 4px 4px 0 0 var(--accent);
+  max-width: 100%;
+  min-width: 0;
+}
+
+.retro-shadow-room {
+  padding-right: 4px;
+  padding-bottom: 4px;
+}
+
+@media (max-width: 640px) {
+  .retro-box {
+    box-shadow: 3px 3px 0 0 var(--accent);
+  }
+
+  .retro-shadow-room {
+    padding-right: 3px;
+    padding-bottom: 3px;
+  }
+}
+
+.retro-box-inset {
+  background: var(--background);
+  border: 2px solid var(--border-dim);
+}
+
+.retro-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.retro-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--border);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.retro-btn:active {
+  transform: translate(2px, 2px);
+}
+
+.retro-btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: 4px 4px 0 0 var(--foreground);
+}
+
+.retro-btn-primary:hover {
+  background: var(--accent-dark);
+  box-shadow: 2px 2px 0 0 var(--foreground);
+  transform: translate(2px, 2px);
+}
+
+.retro-btn-secondary {
+  background: var(--surface);
+  color: var(--foreground);
+  box-shadow: 4px 4px 0 0 var(--border-dim);
+}
+
+.retro-btn-secondary:hover {
+  background: var(--background);
+  box-shadow: 2px 2px 0 0 var(--border-dim);
+  transform: translate(2px, 2px);
+}
+
+.retro-divider {
+  border-color: var(--border-dim);
+}
+
+.retro-blink {
+  animation: retro-blink 1.2s step-end infinite;
+}
+
+@keyframes retro-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
